@@ -1,5 +1,5 @@
 <?php
-require __DIR__ . "/model.php";
+require __DIR__ . "/php/model.php";
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +18,6 @@ require __DIR__ . "/model.php";
     <!-- Website Font style -->
     <link rel="stylesheet" href="assets/css/all.min.css">
 
-
     <!-- Google Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
@@ -31,90 +30,42 @@ require __DIR__ . "/model.php";
             <h2 class="text-header col-12 text-center margins">Product loading template</h2>
         </div>
     </header>
-
     <main>
         <div class="row">
             <ul class="products-wrapper col-12">
                 <div class="row">
-                    <li class="product-item-wrap text-center col-3 mb-4">
-                        <div class="product-item col-12">
-                            <div class="product-img-wrap">
-                                <img class="product-img" src="img/Layer%20311.png" alt="product-title">
+                    <?php foreach (getItems(1, 4) as $item): ?>
+                        <li class="product-item-wrap text-center col-3 mb-4">
+                            <div class="product-item col-12">
+                                <div class="product-img-wrap">
+                                    <img class="product-img" src="<?php echo $item['img']; ?>" alt="
+                    <?php echo $item['title']; ?>">
+                                </div>
+                                <h3 class="product-title"><?php echo $item['title']; ?></h3>
+                                <p class="description"><?php echo $item['description']; ?></p>
+                                <?php if ($item['discountCost']): ?>
+                                    <div class="price-wrapper">
+                                        <span class="special-price">$<?php echo $item['discountCost']; ?></span>
+                                        <span class="price old-price">$<?php echo $item['cost']; ?></span>
+                                    </div>
+                                <?php else: ?>
+                                    <div class="price-wrapper">
+                                        <span class="price">$<?php echo $item['cost']; ?></span>
+                                    </div>
+                                <?php endif; ?>
+
+                                <?php if ($item['discountCost'] !== null): ?>
+                                    <span class="sales-icon">Sale</span>
+                                <?php endif; ?>
+                                <?php if ($item['new']): ?>
+                                    <span class="new-icon">New</span>
+                                <?php endif; ?>
+                                <button class="btn addtocart">Add to cart</button>
+                                <button class="btn view">View</button>
                             </div>
-                            <h3 class="product-title">Title product</h3>
-                            <p class="description">It is a long established fact that a reader will be distracted by the
-                                readable content of a page when looking at its layout.</p>
-                            <div class="price-wrapper">
-                                <span class="price">$256.6</span>
-                            </div>
-                            <button class="btn addtocart">Add to cart</button>
-                            <button class="btn view">View</button>
-                        </div>
-                    </li>
-                    <li class="product-item-wrap text-center col-3 mb-4">
-                        <div class="product-item col-12">
-                            <div class="product-img-wrap">
-                                <img class="product-img" src="img/Layer%20312.png" alt="product-title">
-                            </div>
-                            <h3 class="product-title">Title product</h3>
-                            <p class="description">It is a long established fact that a reader will be distracted by the
-                                readable content of a page when looking at its layout.</p>
-                            <span class="sales-icon">Sale</span>
-                            <span class="new-icon">New</span>
-                            <div class="price-wrapper">
-                                <span class="price old-price">$256.6</span>
-                                <span class="special-price">$100</span>
-                            </div>
-                            <button class="btn addtocart">Add to cart</button>
-                            <button class="btn view">View</button>
-                        </div>
-                    </li>
-                    <li class="product-item-wrap text-center col-3 mb-4">
-                        <div class="product-item col-12">
-                            <div class="product-img-wrap">
-                                <img class="product-img" src="img/Layer%20313.png" alt="product-title">
-                            </div>
-                            <h3 class="product-title">Title product</h3>
-                            <p class="description">It is a long established fact that a reader will be distracted by the
-                                readable content of a page when looking at its layout.</p>
-                            <div class="price-wrapper">
-                                <span class="price">$256.6</span>
-                            </div>
-                            <button class="btn addtocart">Add to cart</button>
-                            <button class="btn view">View</button>
-                        </div>
-                    </li>
-                    <li class="product-item-wrap text-center col-3 mb-4">
-                        <div class="product-item col-12">
-                            <div class="product-img-wrap">
-                                <img class="product-img" src="img/Layer%20314.png" alt="product-title">
-                            </div>
-                            <h3 class="product-title">Title product</h3>
-                            <p class="description">It is a long established fact that a reader will be distracted by the
-                                readable content of a page when looking at its layout.</p>
-                            <div class="price-wrapper">
-                                <span class="price">$256.6</span>
-                            </div>
-                            <button class="btn addtocart">Add to cart</button>
-                            <button class="btn view">View</button>
-                        </div>
-                    </li>
-                    <!--            --><?php //foreach (getItems(1, 4) as $item): ?>
-                    <!--                <li>-->
-                    <!--                    <img src="--><?php //echo $item['img']; ?><!--" alt="-->
-                    <?php //echo $item['title']; ?><!--">-->
-                    <!--                    <h3>--><?php //echo $item['title']; ?><!--</h3>-->
-                    <!--                    <p class="description">--><?php //echo $item['description']; ?><!--</p>-->
-                    <!--                    --><?php //echo $item['discountCost'] ? $item['discountCost'] : $item['cost']; ?>
-                    <!--                    --><?php //if ($item['discountCost'] !== null): ?>
-                    <!--                        --><?php //echo $item['cost']; ?>
-                    <!--                        <span>Sale</span>-->
-                    <!--                    --><?php //endif; ?>
-                    <!--                    --><?php //if ($item['new']): ?>
-                    <!--                        <span>New</span>-->
-                    <!--                    --><?php //endif; ?>
-                    <!--                </li>-->
-                    <!--            --><?php //endforeach; ?>
+                        </li>
+                    <?php endforeach; ?>
+                </div>
             </ul>
         </div>
 
@@ -179,7 +130,8 @@ require __DIR__ . "/model.php";
                             <ul class="store-information">
                                 <li><i class="fas fa-map-marker-alt"></i> <span>Company Inc., 8901 Marmora Road, Glasgow, D04 89GR</span>
                                 </li>
-                                <li><i class="fas fa-phone fa-rotate-90"></i><span>Call us now toll free: (800) 2345-6789</span></li>
+                                <li><i class="fas fa-phone fa-rotate-90"></i><span>Call us now toll free: (800) 2345-6789</span>
+                                </li>
                                 <li><i class="far fa-envelope"></i><span>Customer support: support@example.com Press: pressroom@example.</span>
                                 </li>
                                 <li><i class="fab fa-skype"></i><span>Skype: sample-username</span></li>

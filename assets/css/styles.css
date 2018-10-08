@@ -138,16 +138,12 @@ footer {
 
 .price.old-price {
     color: red;
-    text-decoration: line-through;
+    font-size: 17px;
 }
 
+.special-price,
 .price {
     font-size: 25px;
-    line-height: 26px;
-}
-
-.special-price {
-    font-size: 17px;
     line-height: 26px;
 }
 

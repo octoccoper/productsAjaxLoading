@@ -1,11 +1,23 @@
 (function ($) {
-    $(document).ready(function() {
+    $(document).ready(function () {
         $(".load-more").on("click", loadProducts);
-        var entities;
-        var total;
+
         function loadProducts() {
-            console.log("You clicked load more btn!");
-            $.get("/php/list.php", {entities: entities, total: total});
+            $.ajax(
+                {
+                    url: "/php/list.php",
+                    type: "get",
+                    data: {},
+                    dataType: "json",
+                    success: function (data) {
+                        $(".products-wrapper")
+                        return console.log("ajax works!", data.entities);
+                    },
+                    error: function (result) {
+                       console.log("Error: ",result);
+                    }
+                });
+
         }
     });
 })(jQuery);
