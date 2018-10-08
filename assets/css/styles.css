@@ -6,11 +6,13 @@
 
 .footer-links {
     padding-left: 0;
+    margin-bottom: 0;
 }
 
 .footer-item {
     flex-direction: row;
     height: 100%;
+    margin-bottom: 0;
 }
 
 .product-img {
@@ -34,6 +36,7 @@
 
 .product-item-wrap {
     min-width: 285px;
+    max-width: 285px;
     display: flex;
     flex-direction: column;
 }
@@ -56,6 +59,12 @@
 
 .footer-title {
     text-transform: uppercase;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.customer-data {
+    display: inline-block;
 }
 
 footer {
@@ -65,7 +74,7 @@ footer {
 .new-icon,
 .sales-icon {
     position: absolute;
-    top: 30%;
+    top: 18%;
     display: block;
     width: 80px;
     padding: 10px 5px;
@@ -110,8 +119,9 @@ footer {
     text-transform: uppercase;
     width: 108px;
     padding: .375rem 0.1rem;
-    font-size: 13px;
+    font-size: 12px;
     line-height: 26px;
+    color: #999e9f;
 }
 
 .btn.load-more,
@@ -127,8 +137,7 @@ footer {
 }
 
 .view {
-    background-color: lavender;
-    color: gray;
+    background-color: #d8d8d8;
 }
 
 .view:hover {
@@ -139,6 +148,8 @@ footer {
 .price.old-price {
     color: red;
     font-size: 17px;
+    text-decoration: line-through;
+    padding-left: 30px;
 }
 
 .special-price,
@@ -187,10 +198,18 @@ footer {
 
 .store-information {
     padding-left: 0;
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    height: 70%;
+}
+
+.store-information li {
+    flex-grow: 1;
 }
 
 .store-information li, p, a {
-    font-size: 0.75em;
+    font-size: 11px;
     font-family: 'Ubuntu', sans-serif;
 }
 
@@ -200,21 +219,22 @@ footer {
 }
 
 .store-information i {
-    font-size: 31px;
-    line-height: 31px;
+    font-size: 25px;
     color: #ed1111;
-    width: 45px;
+    width: 31px;
 }
 
 .store-information i.fa-phone {
-    font-size: 23px;
+    font-size: 20px;
     position: relative;
-    right: 5px;
-    top: 7px;
+    right: 6px;
+    top: 3px;
+    margin-right: 3px;
 }
 
-.store-information li {
-    line-height: 31px;
+.store-information i.far.fa-envelope {
+    position: relative;
+    top: -10px;
 }
 
 h1, h2, h3, h4, h5, h6 {

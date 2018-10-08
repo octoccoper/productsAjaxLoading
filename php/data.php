@@ -37,7 +37,7 @@ return [
         'title' => 'test title 5',
         'description' => 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. ',
         'cost' => 249,
-        'discountCost' => null,
+        'discountCost' => 100,
         'new' => true,
         'img'  => '/img/Layer%20315.png',
     ],

@@ -132,7 +132,12 @@ require __DIR__ . "/php/model.php";
                                 </li>
                                 <li><i class="fas fa-phone fa-rotate-90"></i><span>Call us now toll free: (800) 2345-6789</span>
                                 </li>
-                                <li><i class="far fa-envelope"></i><span>Customer support: support@example.com Press: pressroom@example.</span>
+                                <li><i class="far fa-envelope"></i>
+                                    <div class="customer-data">
+                                        <span>Customer support: support@example.com</span>
+                                        <br/>
+                                        <span>Press: pressroom@example.</span>
+                                    </div>
                                 </li>
                                 <li><i class="fab fa-skype"></i><span>Skype: sample-username</span></li>
                             </ul>
