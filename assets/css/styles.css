@@ -42,6 +42,12 @@
 .products-wrapper .row {
     align-items: center;
     justify-content: center;
+    position: relative;
+    height: 100%;
+}
+
+.footer-item-wrap {
+    height: 100%;
 }
 
 .products-wrapper {
@@ -197,10 +203,6 @@ footer {
     vertical-align: middle;
 }
 
-.store-information i.fa-phone {
-    transform: rotate(90deg);
-}
-
 .store-information i {
     font-size: 31px;
     line-height: 31px;
@@ -209,12 +211,10 @@ footer {
 }
 
 .store-information i.fa-phone {
-    transform: rotate(90deg);
-    height: 45px;
-    width: 31px;
     font-size: 23px;
-    line-height: 2;
-    margin-right: 16px;
+    position: relative;
+    right: 5px;
+    top: 7px;
 }
 
 .store-information li {
@@ -231,4 +231,10 @@ body {
 
 .main-wrap {
     background-color: #fff;
+}
+
+@media all and (max-width: 991px) {
+    .footer-wrapper .row, .products-wrapper .row {
+        height: auto;
+    }
 }

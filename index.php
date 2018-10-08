@@ -179,7 +179,7 @@ require __DIR__ . "/model.php";
                             <ul class="store-information">
                                 <li><i class="fas fa-map-marker-alt"></i> <span>Company Inc., 8901 Marmora Road, Glasgow, D04 89GR</span>
                                 </li>
-                                <li><i class="fas fa-phone"></i><span>Call us now toll free: (800) 2345-6789</span></li>
+                                <li><i class="fas fa-phone fa-rotate-90"></i><span>Call us now toll free: (800) 2345-6789</span></li>
                                 <li><i class="far fa-envelope"></i><span>Customer support: support@example.com Press: pressroom@example.</span>
                                 </li>
                                 <li><i class="fab fa-skype"></i><span>Skype: sample-username</span></li>
