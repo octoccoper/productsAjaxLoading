@@ -124,7 +124,7 @@ require __DIR__ . "/php/model.php";
                             </ul>
                         </div>
                     </div>
-                    <div class="footer-item-wrap col-lg-4 col-md-6 col-12 mb-3">
+                    <div class="footer-item-wrap col-lg-4 col-md-9 col-12 mb-3">
                         <div class="footer-item col-12">
                             <h3 class="footer-title">store information</h3>
                             <ul class="store-information">
