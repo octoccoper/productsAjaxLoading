@@ -7,7 +7,7 @@ function getItems($page, $perPage)
 {
     global $data;
     global $count;
-    
+
     $first = ($page - 1) * $perPage;
     if ($first < 0 || $first > $count) {
         return [];

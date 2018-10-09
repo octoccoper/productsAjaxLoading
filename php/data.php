@@ -7,7 +7,7 @@ return [
         'cost' => 249,
         'discountCost' => 199,
         'new' => true,
-        'img'  => '/img/Layer%20311.png',
+        'img'  => './img/Layer%20311.png',
     ],
     [
         'title' => 'test title 2',
@@ -15,7 +15,7 @@ return [
         'cost' => 249,
         'discountCost' => null,
         'new' => false,
-        'img'  => '/img/Layer%20312.png',
+        'img'  => './img/Layer%20312.png',
     ],
     [
         'title' => 'test title 3',
@@ -23,7 +23,7 @@ return [
         'cost' => 125,
         'new' => true,
         'discountCost' => null,
-        'img'  => '/img/Layer%20313.png',
+        'img'  => './img/Layer%20313.png',
     ],
     [
         'title' => 'test title 4',
@@ -31,7 +31,7 @@ return [
         'cost' => 111,
         'discountCost' => 90,
         'new' => false,
-        'img'  => '/img/Layer%20314.png',
+        'img'  => './img/Layer%20314.png',
     ],
     [
         'title' => 'test title 5',
@@ -39,7 +39,7 @@ return [
         'cost' => 249,
         'discountCost' => 100,
         'new' => true,
-        'img'  => '/img/Layer%20315.png',
+        'img'  => './img/Layer%20315.png',
     ],
     [
         'title' => 'test title 6',
@@ -47,7 +47,7 @@ return [
         'cost' => 249,
         'discountCost' => null,
         'new' => true,
-        'img'  => '/img/Layer%20316.png',
+        'img'  => './img/Layer%20316.png',
     ],
     [
         'title' => 'test title 7',
@@ -55,7 +55,7 @@ return [
         'cost' => 249,
         'discountCost' => null,
         'new' => false,
-        'img'  => '/img/Layer%20317.png',
+        'img'  => './img/Layer%20317.png',
     ],
     [
         'title' => 'test title 8',
@@ -63,7 +63,7 @@ return [
         'cost' => 249,
         'discountCost' => null,
         'new' => false,
-        'img'  => '/img/Layer%20318.png',
+        'img'  => './img/Layer%20318.png',
     ],
     [
         'title' => 'test title 9',
@@ -71,6 +71,45 @@ return [
         'cost' => 249,
         'discountCost' => null,
         'new' => false,
-        'img'  => '/img/img_product.png',
+        'img'  => './img/img_product.png',
+    ],
+    [
+        'title' => 'test title 10',
+        'description' => 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. ',
+        'cost' => 249,
+        'discountCost' => null,
+        'new' => true,
+        'img'  => './img/Layer%20314.png',
+    ],
+    [
+        'title' => 'test title 11',
+        'description' => 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. ',
+        'cost' => 249,
+        'discountCost' => null,
+        'new' => false,
+        'img'  => './img/Layer%20313.png',
+    ],
+    [
+        'title' => 'test title 12',
+        'description' => 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. ',
+        'cost' => 249,
+        'discountCost' => null,
+        'new' => false,
+        'img'  => './img/Layer%20314.png',
+    ],
+    [
+        'title' => 'test title 13',
+        'description' => 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. ',
+        'cost' => 300,
+        'discountCost' => 150,
+        'new' => false,
+        'img'  => './img/Layer%20311.png',
+    ],[
+        'title' => 'test title 14',
+        'description' => 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. ',
+        'cost' => 1999,
+        'discountCost' => 1500,
+        'new' => false,
+        'img'  => './img/Layer%20317.png',
     ],
 ];

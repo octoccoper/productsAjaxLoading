@@ -18,6 +18,7 @@
 .product-img {
     height: 200px;
     padding-top: 10px;
+    max-width: 100%;
 }
 
 .product-title {
@@ -84,12 +85,12 @@ footer {
 
 .sales-icon {
     background: red;
-    left: 0;
+    left: -1px;
 }
 
 .new-icon {
     background: #000;
-    right: 0;
+    right: -1px;
 }
 
 .text-header {
