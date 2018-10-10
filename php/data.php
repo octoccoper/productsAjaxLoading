@@ -112,4 +112,12 @@ return [
         'new' => false,
         'img'  => './img/Layer%20317.png',
     ],
+    [
+        'title' => 'test title 15',
+        'description' => 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. ',
+        'cost' => 10.99,
+        'discountCost' => null,
+        'new' => true,
+        'img'  => './img/img_product.png',
+    ],
 ];
