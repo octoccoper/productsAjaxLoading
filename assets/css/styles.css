@@ -4,6 +4,10 @@
     list-style: none;
 }
 
+.product-item-wrap.hide {
+    display: none;
+}
+
 .footer-links {
     padding-left: 0;
     margin-bottom: 0;
