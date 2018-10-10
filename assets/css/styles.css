@@ -340,6 +340,7 @@ body {
     background-color: #fff;
 }
 
+/*responsive styles*/
 @media all and (max-width: 991px) {
     .footer-wrapper .row, .products-wrapper .row {
         height: auto;
@@ -354,3 +355,44 @@ body {
         width: 23px;
     }
 }
+
+@media all and (max-width: 767px) {
+    .store-information i {
+        font-size: 17px;
+        width: 26px;
+    }
+
+    .footer-title {
+        text-align: center;
+    }
+
+    .store-information {
+        text-align: center;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+
+    .store-information li {
+        min-width: 320px;
+        text-align: left;
+    }
+}
+
+@media all and (max-width: 425px) {
+    .text-header {
+        margin-bottom: 10%;
+    }
+
+    .store-information li {
+        min-width: 100%;
+    }
+}
+
+@media all and (max-width: 375px) {
+    .customer-data {
+        display: inline-block;
+        width: 80%;
+    }
+}
+
+/*responsive styles end*/
