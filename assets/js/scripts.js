@@ -16,7 +16,7 @@
     function loadProducts() {
         $.ajax(
             {
-                url: "/product_loading/php/list.php",
+                url: "./php/list.php",
                 type: "get",
                 data: {
                     'title': title,
@@ -32,6 +32,7 @@
                 beforeSend: function () {
                     request_in_process = true;
                     if (parseInt(numberClicks) !== 0) {
+                        console.log("beforeSend works, numberClicks=", numberClicks);
                         functionLoader();
                         loadMoreBtn.attr("disabled", true);
                     }

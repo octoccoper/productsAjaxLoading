@@ -36,11 +36,11 @@
 @keyframes spin {
     0% {
         -webkit-transform: rotate(0deg);
-                transform: rotate(0deg);
+        transform: rotate(0deg);
     }
     100% {
         -webkit-transform: rotate(360deg);
-                transform: rotate(360deg);
+        transform: rotate(360deg);
     }
 }
 
@@ -88,11 +88,11 @@
 @keyframes spin {
     0% {
         -webkit-transform: rotate(0deg);
-                transform: rotate(0deg);
+        transform: rotate(0deg);
     }
     100% {
         -webkit-transform: rotate(360deg);
-                transform: rotate(360deg);
+        transform: rotate(360deg);
     }
 }
 
@@ -102,7 +102,10 @@
 }
 
 .footer-item {
-    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
     height: 100%;
     margin-bottom: 0;
 }
@@ -124,20 +127,30 @@
 }
 
 .product-item-wrap .product-item:hover {
-    box-shadow: 0 3px 7px;
+    -webkit-box-shadow: 0 3px 7px;
+            box-shadow: 0 3px 7px;
 }
 
 .product-item-wrap {
     min-width: 285px;
     max-width: 285px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
 }
 
 .footer-wrapper .row,
 .products-wrapper .row {
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     position: relative;
     height: 100%;
 }
@@ -259,6 +272,7 @@ footer {
 .footer-links li a:before {
     content: '';
     position: relative;
+    -webkit-transition: all .2s ease-out;
     transition: all .2s ease-out;
     border-left: 5px solid red;
     border-top: 5px solid transparent;
@@ -291,15 +305,24 @@ footer {
 
 .store-information {
     padding-left: 0;
-    align-items: stretch;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
     height: 70%;
     margin-bottom: 0;
 }
 
 .store-information li {
-    flex-grow: 1;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
 }
 
 .store-information li, p, a {
