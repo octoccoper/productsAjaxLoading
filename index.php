@@ -147,7 +147,9 @@ require __DIR__ . "/php/model.php";
             </div>
         </div>
     </footer>
-    <div class="loader"></div>
+    <div class="loader-wrapper">
+        <div class="loader"></div>
+    </div>
 </div>
 <script src="assets/js/jquery-3.3.1.min.js"></script>
 <script src="assets/js/scripts.js"></script>
