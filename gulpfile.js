@@ -10,6 +10,7 @@ gulp.task('autoprefixer', function () {
     gulp.src('assets/css/styles.css')
         .pipe(sourcemaps.init())
         .pipe(autoprefixer('last 2 versions'))
+        .pipe(minifyCss())
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('dest/css'))
 });
