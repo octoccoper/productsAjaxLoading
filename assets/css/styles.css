@@ -349,9 +349,12 @@ body {
 }
 
 .loader-wrapper {
-    opacity: 0.75;
-    display: block;
-    background-color: #fff;
+    z-index: 1000;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
 }
 
 .loader-wrapper,

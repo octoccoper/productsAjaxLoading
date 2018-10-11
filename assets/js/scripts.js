@@ -32,7 +32,6 @@
                 beforeSend: function () {
                     request_in_process = true;
                     if (parseInt(numberClicks) !== 0) {
-                        console.log("beforeSend works, numberClicks=", numberClicks);
                         functionLoader();
                         loadMoreBtn.attr("disabled", true);
                     }
@@ -98,9 +97,15 @@
 
     function showProducts() {
         var addedProducts = $(".product-item-wrap.hide");
-        console.log("addedProducts", addedProducts);
-        addedProducts.removeClass("hide");
-        addedProducts.hide().fadeIn(3000);
+        if(addedProducts.length > 0) {
+            addedProducts.removeClass("hide");
+            addedProducts.hide().fadeIn(3000);
+        } else {
+            setTimeout(function(){
+                addedProducts.removeClass("hide");
+                addedProducts.hide().fadeIn(3000);
+            }, 3000);
+        }
     }
 
     function functionLoader() {
