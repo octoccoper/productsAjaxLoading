@@ -10,13 +10,13 @@ require __DIR__ . "/php/model.php";
 
     <meta name="description" content="Product loading">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="dest/css/bootstrap.min.css">
 
     <!-- Website CSS style -->
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="dest/css/styles.css">
 
     <!-- Website Font style -->
-    <link rel="stylesheet" href="assets/css/all.min.css">
+    <link rel="stylesheet" href="dest/css/all.min.css">
 
     <!-- Google Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
