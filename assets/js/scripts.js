@@ -75,6 +75,7 @@
                     });
 
                     $(".loader-wrapper").css("display", "none");
+                    numberClicks = 0;
                     page++;
                 },
                 complete: function () {
@@ -90,7 +91,7 @@
             });
 
         if (ajaxRequestVariable.readyState > 0 && ajaxRequestVariable.readyState < 4) {
-            if (numberClicks > 1) {
+            if (numberClicks === 1) {
                 functionLoader();
             }
         }
@@ -114,7 +115,6 @@
             if (numberClicks > 1) {
                 loadMoreBtn.attr("disabled", true);
                 showProducts();
-                loadProducts();
                 loadMoreBtn.attr("disabled", false);
             }
         }
