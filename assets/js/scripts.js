@@ -5,16 +5,26 @@
     var numberClicks = 0; // number of clicks at load more button
     var request_in_process = false; //status of ajax request, true = in progress, false = inactive
 
-    $(window).on('load', function () {
-        loadProducts();
-    });
-
     $(document).ready(function () {
-        loadMoreBtn.on("click", clickLoadMoreBtn);
+        loadProducts();
+        loadMoreBtn.on("click", clickLoadMoreBtn)
+            .on("dblclick", (function (e) {
+
+            /**
+             * Prevent double-click in case of fast animation or sloppy browser.
+             */
+
+            e.stopPropagation();
+            e.preventDefault();
+            return false;
+        }))
     });
 
     function loadProducts() {
-        $.ajax(
+
+        var ajaxRequestVariable;
+
+        ajaxRequestVariable = $.ajax(
             {
                 url: "./php/list.php",
                 type: "get",
@@ -31,8 +41,7 @@
                 },
                 beforeSend: function () {
                     request_in_process = true;
-                    if (parseInt(numberClicks) !== 0) {
-                        functionLoader();
+                    if (numberClicks > 0) {
                         loadMoreBtn.attr("disabled", true);
                     }
                 },
@@ -67,8 +76,8 @@
                             "</div></li>");
                     });
 
-                    page++;
                     $(".loader-wrapper").css("display", "none");
+                    page++;
                 },
                 complete: function () {
                     request_in_process = false;
@@ -81,30 +90,48 @@
                 }
 
             });
+
+        if (ajaxRequestVariable.readyState > 0 && ajaxRequestVariable.readyState < 4) {
+            if (numberClicks > 1) {
+                functionLoader();
+            }
+        }
+        else {
+            showProducts();
+        }
+
     }
 
     function clickLoadMoreBtn() {
         numberClicks += 1;
 
-        if (numberClicks === 1) {
-            showProducts();
-        }
+        if (numberClicks !== null && numberClicks !== undefined) {
+            if (numberClicks === 1) {
+                loadMoreBtn.attr("disabled", true);
+                loadProducts();
+                showProducts();
+                loadMoreBtn.attr("disabled", false);
+            }
 
-        if (parseInt(numberClicks) !== null && (numberClicks) !== undefined) {
-            loadProducts();
+            if (numberClicks > 1) {
+                loadMoreBtn.attr("disabled", true);
+                showProducts();
+                loadProducts();
+                loadMoreBtn.attr("disabled", false);
+            }
         }
     }
 
     function showProducts() {
         var addedProducts = $(".product-item-wrap.hide");
-        if(addedProducts.length > 0) {
+        if (addedProducts.length > 0) {
             addedProducts.removeClass("hide");
-            addedProducts.hide().fadeIn(3000);
+            addedProducts.hide().fadeIn(1500);
         } else {
-            setTimeout(function(){
+            setTimeout(function () {
                 addedProducts.removeClass("hide");
-                addedProducts.hide().fadeIn(3000);
-            }, 3000);
+                addedProducts.hide().fadeIn(1500);
+            }, 2000);
         }
     }
 
@@ -116,7 +143,6 @@
             showProducts();
         }
     }
-
 
 })(jQuery);
 

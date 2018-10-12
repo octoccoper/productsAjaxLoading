@@ -3,9 +3,10 @@ var gulp = require('gulp'),
     minifyCss = require("gulp-minify-css"),
     uglify = require("gulp-uglify"),
     autoprefixer = require('gulp-autoprefixer'),
-    sourcemaps = require('gulp-sourcemaps');
+    sourcemaps = require('gulp-sourcemaps'),
+    livereload = require('gulp-livereload');
 
-gulp.task('autoprefixer', function () {
+gulp.task('css', function () {
     var autoprefixer = require('gulp-autoprefixer');
     gulp.src('assets/css/styles.css')
         .pipe(sourcemaps.init())
@@ -13,10 +14,11 @@ gulp.task('autoprefixer', function () {
         .pipe(minifyCss())
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('dest/css'))
+        .pipe(livereload());
 });
 
 gulp.task('minify-css', function () {
-    gulp.src('assets/css/styles.css')
+    gulp.src('assets/css/*.css')
         .pipe(minifyCss())
         .pipe(gulp.dest('dest/css'));
 });
@@ -32,8 +34,10 @@ gulp.task('fonts', function () {
         .pipe(gulp.dest('dest/webfonts'))
 });
 
-gulp.task('default', ['autoprefixer', 'minify-js', 'fonts']);
+gulp.task('default', ['css', 'minify-js', 'fonts']);
 
 gulp.task('watch', function () {
-    gulp.watch('*.js, *.css', ['autoprefixer', 'minify-js']);
+    livereload.listen();
+    gulp.watch('assets/css/styles.css', ['css']);
+    gulp.watch('assets/js/scripts.js', ['minify-js']);
 });
