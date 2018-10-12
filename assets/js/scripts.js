@@ -75,12 +75,12 @@
                     });
 
                     $(".loader-wrapper").css("display", "none");
-                    numberClicks = 0;
                     page++;
                 },
                 complete: function () {
                     request_in_process = false;
                     loadMoreBtn.attr("disabled", false);
+                    numberClicks = 0;
                 },
                 error: function (result) {
                     request_in_process = false;
