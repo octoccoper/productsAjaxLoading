@@ -8,16 +8,14 @@
     $(document).ready(function () {
         loadProducts();
         loadMoreBtn.on("click", clickLoadMoreBtn)
-            .on("dblclick", (function (e) {
-
-            /**
-             * Prevent double-click in case of fast animation or sloppy browser.
-             */
-
-            e.stopPropagation();
-            e.preventDefault();
-            return false;
-        }))
+                   .on("dblclick", (function (e) {
+                       /**
+                       * Prevent double-click in case of fast animation or sloppy browser.
+                       */
+                       e.stopPropagation();
+                       e.preventDefault();
+                       return false;
+                    }))
     });
 
     function loadProducts() {

@@ -7,7 +7,6 @@ var gulp = require('gulp'),
     livereload = require('gulp-livereload');
 
 gulp.task('css', function () {
-    var autoprefixer = require('gulp-autoprefixer');
     gulp.src('assets/css/styles.css')
         .pipe(sourcemaps.init())
         .pipe(autoprefixer('last 2 versions'))
