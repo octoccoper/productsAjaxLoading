@@ -38,9 +38,6 @@
                 },
                 beforeSend: function () {
                     request_in_process = true;
-                    if (numberClicks > 0) {
-                        loadMoreBtn.attr("disabled", true);
-                    }
                 },
                 success: function (data) {
                     var object = JSON.parse(data);
@@ -67,23 +64,24 @@
                             "<button class='btn view'>View</button>" +
                             "</div></li>");
                     });
+                    page++;
                     request_in_process = false;
                     functionLoader();
-                    loadMoreBtn.attr("disabled", false);
-                    // numberClicks = 0;
-                    page++;
-
-
+                    numberClicks = 0;
                 },
                 complete: function () {
                     request_in_process = false;
+
+                    if(numberClicks) {
+                        showProducts();
+                    }
+
                 },
                 error: function (result) {
                     request_in_process = false;
                     console.log("Ajax request gave an error: ", result);
                     return request_in_process;
                 }
-
             });
 
     }
@@ -91,44 +89,36 @@
     function clickLoadMoreBtn() {
         numberClicks += 1;
 
-        if (numberClicks !== null && numberClicks !== undefined) {
-            if (numberClicks === 1) {
+        if (request_in_process !== true) {
+            if (numberClicks !== null && numberClicks !== undefined) {
                 loadMoreBtn.attr("disabled", true);
-
-                if (ajaxRequestVariable.readyState > 0 && ajaxRequestVariable.readyState < 4) {
-                    functionLoader();
-                }
-                else {
-                    showProducts();
-                }
-
                 showProducts();
+                functionLoader();
                 loadProducts();
             }
-
-            if (numberClicks > 1) {
-                loadMoreBtn.attr("disabled", true);
-
-                showProducts();
-                loadProducts();
-
-                if ((page - 1) > (total / perPage)) {
-                    loadMoreBtn.css("display", "none");
-                    showProducts();
-                }
-            }
-
         }
+
+        else {
+            functionLoader();
+            showProducts();
+        }
+
+        if ((page - 1) > (total / perPage)) {
+            loadMoreBtn.css("display", "none");
+            showProducts();
+        }
+
+        return numberClicks;
     }
 
     function showProducts() {
         var addedProducts = $(".product-item-wrap.hide");
+
         if (addedProducts.length > 0) {
             addedProducts.removeClass("hide");
             addedProducts.hide().fadeIn(1500);
         } else {
             setTimeout(function () {
-                functionLoader();
                 addedProducts.removeClass("hide");
                 addedProducts.hide().fadeIn(1500);
             }, 2000);
@@ -137,9 +127,16 @@
 
     function functionLoader() {
         if (request_in_process === true) {
-            $(".loader-wrapper").css("display", "block");
+            if (ajaxRequestVariable.readyState > 0 && ajaxRequestVariable.readyState < 4) {
+                $(".loader-wrapper").css("display", "block");
+            }
+            else {
+                $(".loader-wrapper").css("display", "none");
+                loadMoreBtn.attr("disabled", false);
+            }
         } else {
             $(".loader-wrapper").css("display", "none");
+            loadMoreBtn.attr("disabled", false);
         }
     }
 
