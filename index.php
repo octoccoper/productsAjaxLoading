@@ -10,12 +10,17 @@ require __DIR__ . "/php/model.php";
 
     <meta name="description" content="Product loading">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Website favicon-->
+    <link rel="icon" type="image/png" href="img/favicon-32x32.png" sizes="32x32"/>
+    <link rel="icon" type="image/png" href="img/favicon-16x16.png" sizes="16x16"/>
+
     <link rel="stylesheet" type="text/css" href="dest/css/bootstrap.min.css">
 
     <!-- Website CSS style -->
     <link rel="stylesheet" href="dest/css/styles.css">
 
-    <!-- Website Font style -->
+    <!-- Website Fontawesome style -->
     <link rel="stylesheet" href="dest/css/all.min.css">
 
     <!-- Google Fonts -->
