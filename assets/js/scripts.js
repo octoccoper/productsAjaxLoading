@@ -70,13 +70,10 @@
                     request_in_process = false;
                     functionLoader();
                     loadMoreBtn.attr("disabled", false);
-                    numberClicks = 0;
+                    // numberClicks = 0;
                     page++;
 
-                    if ((page - 1) > (total / perPage)) {
-                        loadMoreBtn.css("display", "none");
-                        showProducts();
-                    }
+
                 },
                 complete: function () {
                     request_in_process = false;
@@ -102,16 +99,23 @@
                     functionLoader();
                 }
                 else {
-                    functionLoader();
-                    
+                    showProducts();
                 }
+
                 showProducts();
                 loadProducts();
             }
 
             if (numberClicks > 1) {
                 loadMoreBtn.attr("disabled", true);
-                functionLoader();
+
+                showProducts();
+                loadProducts();
+
+                if ((page - 1) > (total / perPage)) {
+                    loadMoreBtn.css("display", "none");
+                    showProducts();
+                }
             }
 
         }
@@ -122,12 +126,12 @@
         if (addedProducts.length > 0) {
             addedProducts.removeClass("hide");
             addedProducts.hide().fadeIn(1500);
-        // } else {
-        //     setTimeout(function () {
-        //         functionLoader();
-        //         addedProducts.removeClass("hide");
-        //         addedProducts.hide().fadeIn(1500);
-        //     }, 2000);
+        } else {
+            setTimeout(function () {
+                functionLoader();
+                addedProducts.removeClass("hide");
+                addedProducts.hide().fadeIn(1500);
+            }, 2000);
         }
     }
 
