@@ -4,23 +4,22 @@
     var title, description, cost, discountCost, newCost, img, page, perPage, total; //variables for ajax query with product items
     var numberClicks = 0; // number of clicks at load more button
     var request_in_process = false; //status of ajax request, true = in progress, false = inactive
+    var ajaxRequestVariable; // ajax request status
 
     $(document).ready(function () {
         loadProducts();
         loadMoreBtn.on("click", clickLoadMoreBtn)
-                   .on("dblclick", (function (e) {
-                       /**
-                       * Prevent double-click in case of fast animation or sloppy browser.
-                       */
-                       e.stopPropagation();
-                       e.preventDefault();
-                       return false;
-                    }))
+            .on("dblclick", (function (e) {
+                /**
+                 * Prevent double-click in case of fast animation or sloppy browser.
+                 */
+                e.stopPropagation();
+                e.preventDefault();
+                return false;
+            }))
     });
 
     function loadProducts() {
-
-        var ajaxRequestVariable;
 
         ajaxRequestVariable = $.ajax(
             {
@@ -50,11 +49,6 @@
                     perPage = parseInt(object.perPage);
                     page = parseInt(object.page);
 
-                    if ((page - 1) > (total / perPage)) {
-                        loadMoreBtn.hide();
-                        showProducts();
-                    }
-
                     $.each(resultObject, function (key, value) {
                         $('.products-wrapper .row').append("<li class='product-item-wrap text-center col-3 mb-4 hide'>" +
                             "<div class='product-item col-12'>" +
@@ -73,14 +67,19 @@
                             "<button class='btn view'>View</button>" +
                             "</div></li>");
                     });
-
-                    $(".loader-wrapper").css("display", "none");
+                    request_in_process = false;
+                    functionLoader();
+                    loadMoreBtn.attr("disabled", false);
+                    numberClicks = 0;
                     page++;
+
+                    if ((page - 1) > (total / perPage)) {
+                        loadMoreBtn.css("display", "none");
+                        showProducts();
+                    }
                 },
                 complete: function () {
                     request_in_process = false;
-                    loadMoreBtn.attr("disabled", false);
-                    numberClicks = 0;
                 },
                 error: function (result) {
                     request_in_process = false;
@@ -90,15 +89,6 @@
 
             });
 
-        if (ajaxRequestVariable.readyState > 0 && ajaxRequestVariable.readyState < 4) {
-            if (numberClicks === 1) {
-                functionLoader();
-            }
-        }
-        else {
-            showProducts();
-        }
-
     }
 
     function clickLoadMoreBtn() {
@@ -107,16 +97,23 @@
         if (numberClicks !== null && numberClicks !== undefined) {
             if (numberClicks === 1) {
                 loadMoreBtn.attr("disabled", true);
-                loadProducts();
+
+                if (ajaxRequestVariable.readyState > 0 && ajaxRequestVariable.readyState < 4) {
+                    functionLoader();
+                }
+                else {
+                    functionLoader();
+                    
+                }
                 showProducts();
-                loadMoreBtn.attr("disabled", false);
+                loadProducts();
             }
 
             if (numberClicks > 1) {
                 loadMoreBtn.attr("disabled", true);
-                showProducts();
-                loadMoreBtn.attr("disabled", false);
+                functionLoader();
             }
+
         }
     }
 
@@ -125,11 +122,12 @@
         if (addedProducts.length > 0) {
             addedProducts.removeClass("hide");
             addedProducts.hide().fadeIn(1500);
-        } else {
-            setTimeout(function () {
-                addedProducts.removeClass("hide");
-                addedProducts.hide().fadeIn(1500);
-            }, 2000);
+        // } else {
+        //     setTimeout(function () {
+        //         functionLoader();
+        //         addedProducts.removeClass("hide");
+        //         addedProducts.hide().fadeIn(1500);
+        //     }, 2000);
         }
     }
 
@@ -138,7 +136,6 @@
             $(".loader-wrapper").css("display", "block");
         } else {
             $(".loader-wrapper").css("display", "none");
-            showProducts();
         }
     }
 
