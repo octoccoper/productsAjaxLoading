@@ -7,8 +7,8 @@
     "gulp": "^3.9.1",
     "gulp-minify-css": "^1.2.4",
     "gulp-uglify": "^3.0.1",
-    "webpack-cli": "^3.1.2",
-    "webpack": "^4.20.2"
+    "webpack-cli": "^5.0.1",
+    "webpack": "^5.75.0"
   },
   "devDependencies": {
     "gulp-autoprefixer": "^6.0.0",
